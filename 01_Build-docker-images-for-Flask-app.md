@@ -2,7 +2,6 @@
 [source](https://www.youtube.com/watch?v=wrMJoKpK2mk)
 
 1. Add basic `index.html` and `app.py` files
-
 `index.html`
 ```html
 <!DOCTYPE html>
@@ -33,7 +32,6 @@ if __name__ == '__main__':
 2. test by running and going to url
 3. write requirements.txt file
 4. write docker file below
-
 ```docker
 # init a base image
 FROM python:3.6.1-alpine
@@ -47,3 +45,39 @@ RUN pip install -r requirements.txt
 # define command to start server
 CMD ["python", "app.py"]
 ```
+
+5. Run docker build command
+```
+docker image build -t docker-flask-test .
+```
+
+6. view docker images
+```
+docker image ls
+```
+
+7.  run docker image specifying host
+```
+docker run -p 5000:5000 -d docker-flask-test
+
+# open up a browser and type
+localhost:5000
+```
+
+8. Be sure to copy the docker ID
+9. After you're done, run the docker stop command
+
+```
+docker stop <docker ID>
+```
+
+10. Free up system resources
+```
+docker system prune
+```
+
+
+
+
+# Loading image on Synology NAS
+
